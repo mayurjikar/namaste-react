@@ -19,3 +19,19 @@
 - HTTPs
 - Tree Shaking - remove unused code
 
+
+## Namaste Food App
+/*Header
+ - Logo
+ - Nav Items
+ Body
+  - Search Bar
+  - Restaurant Container
+   - Restaurant Card
+    - Image
+  Footer
+   - Copyright
+   - Links
+   - Address
+   - Contact
+*/
