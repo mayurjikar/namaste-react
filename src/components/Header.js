@@ -1,17 +1,20 @@
 import ReactDOM from "react-dom/client";
 import { useEffect, useState } from "react";
 import { CDN_URL } from "../utils/constants";
+import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = () => {
   const [signInBtn, setsignInBtn] = useState("Login");
-  console.log("Header component");
 
   // if no dependency array => useEffect is called on every render
   // if dependency array is empty = [] => useEffect is called on intial render(just once)
   // if dependency array is [signInBtn] => called everytime signInBtn is updated.
-  useEffect(() => {
-     console.log('useEffect called');
-  }, []);
+  // useEffect(() => {
+  //    console.log('useEffect called');
+  // }, []);
+
+  const showOnlineStatus = useOnlineStatus();
 
   return (
     <div className="header">
@@ -20,9 +23,11 @@ const Header = () => {
       </div>
       <div className="nav-items">
         <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
+          <li>Online Status: {showOnlineStatus ? "🟢" : "🔴"}</li>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/contact">Contact</Link></li>
+          <li><Link to="/grocery">Grocery</Link></li>
           <li>Cart</li>
           <button
             className="sign-btn"
