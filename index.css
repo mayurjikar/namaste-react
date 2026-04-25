@@ -1,4 +1,6 @@
-.header{
+@import "tailwindcss";
+
+/* .header{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -52,10 +54,6 @@
 }
 
 .filter-btn {
-    /* background-color: #ff6347;
-    color: white;
-    border: none;
-    padding: 10px 20px; */
     border-radius: 5px;
     cursor: pointer;
     margin: 8px;
@@ -92,4 +90,11 @@
 .user-card{
     padding: 10px;
     border: 1px solid black;
-}
+} */
+
+/* .filter-btn {
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+} */
