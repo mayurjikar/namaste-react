@@ -5,13 +5,21 @@ import UserContext from "../utils/UserContext";
 const RestaurantCard = (props) => {
   const { resData } = props;
 
+  console.log(resData)
+
   const {loggedInUser} = useContext(UserContext);
 
-  const { avgRating, cloudinaryImageId, costForTwo, cuisines, sla, name } =
-    resData?.info;
- 
+  const {
+    avgRating,
+    cloudinaryImageId,
+    costForTwo,
+    cuisines = [],
+    sla = {},
+    name,
+  } = resData?.info;
+
   return (
-    <div className="RestaurantCard p-4 m-4 w-[250] bg-gray-100 hover:bg-gray-200 rounded-lg">
+    <div data-testid="resCard" className="RestaurantCard p-4 m-4 w-[250] bg-gray-100 hover:bg-gray-200 rounded-lg">
       <img
         className="restaurant-image rounded-lg"
         src={LOGO_URL + cloudinaryImageId}

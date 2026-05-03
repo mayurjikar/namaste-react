@@ -6,6 +6,7 @@
     "start": "parcel index.html",
     "build": "parcel build index.html",
     "test": "jest",
+    "watch-test": "jest --watch",
     "clean": "rd /s /q .parcel-cache dist 2>nul || exit 0"
   },
   "repository": {

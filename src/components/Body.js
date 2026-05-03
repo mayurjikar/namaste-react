@@ -24,7 +24,7 @@ const Body = () => {
   const fetchData = async () => {
     const data = await fetch(BNG_SWIGGY_API);
     const json = await data.json();
-    //console.log(json.data.cards[1]);
+
     setListOfRestaurants(
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants,
@@ -53,6 +53,7 @@ const Body = () => {
         <div className="search-btn m-4 p-4">
           <input
             type="text"
+            data-testid="searchInput"
             className="search-box border border-solid border-black"
             value={searchText}
             onChange={(e) => {
@@ -63,7 +64,6 @@ const Body = () => {
             className="px-4 py-0.5 bg-green-100 m-4 rounded-md cursor-pointer"
             onClick={() => {
               // Filter the restaurant cards and update the UI
-              console.log(searchText);
               const filteredRestaurants = listOfRestaurants.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase()),
               );
@@ -78,7 +78,7 @@ const Body = () => {
             className="filter-btn px-4 py-0.5 bg-gray-100 rounded-md cursor-pointer"
             onClick={() => {
               const filteredList = listOfRestaurants.filter(
-                (res) => res.info.avgRating > 4.0,
+                (res) => res.info.avgRating > 4.3,
               );
               setFilterRestaurants(filteredList);
             }}
@@ -88,7 +88,7 @@ const Body = () => {
         </div>
         <div className="search-btn m-4 p-4 flex items-center">
           <label className="p-2">UserName:</label>
-          <input
+          <input data-testid="userInput"
             className="border border-black p-1"
             value={loggedInUser}
             onChange={(e) => setUserName(e.target.value)}
